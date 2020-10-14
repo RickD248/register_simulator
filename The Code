@@ -1,0 +1,169 @@
+import java.util.Scanner;
+public class Sistema_Cadastro {
+	
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		
+		int cadastro = 0;
+		int[] repetir = new int[2];
+		repetir[0] = 0;
+		repetir[1] = 1;
+		
+		String[] nome = new String[15];
+		String[] sobrenome = new String[15];
+		String[] gen = new String[15];
+		int[] ano = new int[15];
+		int[] idade = new int[15];
+		
+		while (cadastro <= 14) {
+			
+			nome[cadastro] = " -- ";
+			sobrenome[cadastro] = " -- ";
+			gen[cadastro] = " -- ";
+			ano[cadastro] = 0;
+			idade[cadastro] = 0;
+			
+			cadastro ++;
+			
+		}
+		
+		cadastro = 0;
+		
+		while (repetir[0] == 0) {
+			
+			System.out.println("Oque deseja fazer?");
+			System.out.println("1) Criar um novo cadastro");
+			System.out.println("2) Visualizar cadastro já existente");
+			System.out.println("3) Sair do programa");
+			int primeiraescolha = in.nextInt();
+			System.out.println(" ");
+			
+			if (primeiraescolha == 1) {
+				
+				//inicio if;
+				
+				int x = 0;
+				while (x <= 15) {
+					
+					System.out.println("Qual será o número de casdastro? (o minimo é 1 e o maximo possivel é 15)");
+					System.out.println("Se deseja alterar algum dado, digite o numero do cadastro");
+					cadastro = in.nextInt();
+					cadastro --;
+					System.out.println(" ");
+					
+					if (cadastro >= 15) {
+						
+						System.out.println("Respeite o limite de cadastros");
+						System.out.println(" ");
+						
+					} else {
+						
+						x = 20;
+						
+					}
+					
+				}
+				
+				System.out.println("Qual o seu nome?");
+				nome[ cadastro ] = in.next();
+				
+				System.out.println(" ");
+				System.out.println("Qual o seu sobrenome?");
+				sobrenome[ cadastro ] = in.next();
+				
+				System.out.println(" ");
+				System.out.println("Qual o seu genero?");
+				System.out.println("Digite 'm' para mulher");
+				System.out.println("Digite 'h' para homem");
+				gen[ cadastro ] = in.next();
+				
+				System.out.println(" ");
+				System.out.println("Informe seu ano de nascimento");
+				ano[ cadastro ] = in.nextInt();
+				
+				System.out.println(" ");
+				System.out.println("Informe sua idade");
+				idade[ cadastro ] = in.nextInt();
+				System.out.println(" ");
+				
+				System.out.println("Cadastro finalizado...");
+				System.out.println(" ");
+				
+				//fim do if (criar);
+				
+			}
+			
+			//opcao 2;
+			
+			if (primeiraescolha == 2) {
+				
+				cadastro = 0;
+				int numeracao = 1;
+				
+				while (cadastro <= 14) {
+					
+					System.out.println(numeracao + ") " + nome[ cadastro ] + " " + sobrenome[ cadastro ]);
+					
+					cadastro ++;
+					numeracao ++;
+					
+				}
+				
+				cadastro = 0;
+				numeracao = 0;
+				
+				System.out.println(" ");
+				System.out.println("Digite a numeraçao do cadastro que deseja visualizar");
+				numeracao = in.nextInt();
+				
+				cadastro = numeracao - 1;
+				
+					System.out.println("Nome completo: " + nome[cadastro] + " " + sobrenome[cadastro]);
+					System.out.println("Numero de cadastro: " + numeracao );
+					
+					if (gen[ cadastro ].equals("h")||gen[ cadastro ].equals("H")) {
+						
+						gen[ cadastro ] = "masculino";
+						
+						if (gen[ cadastro ].equals("m")||gen[ cadastro ].equals("M")) {
+						
+						gen[ cadastro ] = "feminino";
+						
+					}
+						
+					}
+					
+					System.out.println("Genero descrevido: " + gen[cadastro]);
+					System.out.println("Nasceu no ano de " + ano[cadastro] + " e atualmente tem " + idade[cadastro] + " anos");
+					System.out.println(" ");
+					
+			}
+			
+			//opcao nao existente;
+			
+			if ((primeiraescolha != 1) && (primeiraescolha != 2) && (primeiraescolha != 3)) {
+			
+			System.out.println("Este comando nao existe");
+			System.out.println(" ");
+			
+			}
+			
+			if (primeiraescolha == 3) {
+				
+				repetir[0] ++;
+				
+			}
+				
+			}
+			
+			//repetir acabou man;
+			
+		repetir[0] = 1;
+			
+		System.out.println("Programa finalizado.");
+		in.close();
+		
+	}
+
+}
